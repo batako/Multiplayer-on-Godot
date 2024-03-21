@@ -16,7 +16,6 @@ spawn_path = NodePath("../NetworkedNodes")
 [node name="NetworkStatusLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-theme_override_font_sizes/font_size = 32
 
 [node name="ReconnectTimer" type="Timer" parent="."]
 
