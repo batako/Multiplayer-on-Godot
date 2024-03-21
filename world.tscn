@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://2m3pyj0r26na"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_83oj8"]
+[ext_resource type="PackedScene" uid="uid://cui07l6l0jc7m" path="res://player.tscn" id="2_r6bbf"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_83oj8")
+PlayerScene = ExtResource("2_r6bbf")
+
+[node name="NetworkedNodes" type="Node2D" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://player.tscn")
+spawn_path = NodePath("../NetworkedNodes")
+
+[node name="NetworkStatusLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+
+[node name="ReconnectTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="ReconnectTimer" to="." method="_on_reconnect_timer_timeout"]
