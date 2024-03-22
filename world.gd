@@ -39,14 +39,10 @@ func start_network() -> void:
 		print("server listening on localhost " + str(port))
 
 	else:
-		connect_to_server()
+		peer.create_client(host, port)
+		reconnect_timer.start()
 
 	multiplayer.multiplayer_peer = peer
-
-
-func connect_to_server() -> void:
-	peer.create_client(host, port)
-	reconnect_timer.start()
 
 
 func create_player(id: int) -> void:

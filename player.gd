@@ -6,10 +6,6 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 
-func is_local_authority() -> bool:
-	return name == str(multiplayer.get_unique_id())
-
-
 func _physics_process(delta):
 	if not is_local_authority():
 		position = sync_position
@@ -25,6 +21,10 @@ func _physics_process(delta):
 		position.y += delta * SPEED
 	
 	rpc_id(1, StringName("push_to_server"), position)
+
+
+func is_local_authority() -> bool:
+	return name == str(multiplayer.get_unique_id())
 
 
 @rpc("any_peer", "unreliable_ordered")
