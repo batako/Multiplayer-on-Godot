@@ -34,5 +34,5 @@ func push_to_server(_sync_pos: Vector2):
 	if name != str(multiplayer.get_remote_sender_id()):
 		print("someone being naughty!", multiplayer.get_remote_sender_id(), ' tried to update ', name)
 		return
-	sync_position = _sync_pos
 	
+	sync_position = _sync_pos
